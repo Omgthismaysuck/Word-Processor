@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WordClone Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toolbar">
+    <!-- Font formatting -->
+    <button onclick="execCmd('bold')">Bold</button>
+    <button onclick="execCmd('italic')">Italic</button>
+    <button onclick="execCmd('underline')">Underline</button>
+    <button onclick="execCmd('removeFormat')">Clear</button>
+
+    <!-- Font selection -->
+    <select onchange="execCmdArg('fontName', this.value)">
+      <option value="">Font</option>
+      <option value="Arial">Arial</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Times New Roman">Times New Roman</option>
+      <option value="Verdana">Verdana</option>
+    </select>
+
+    <!-- Font size -->
+    <select onchange="execCmdArg('fontSize', this.value)">
+      <option value="">Size</option>
+      <option value="1">8pt</option>
+      <option value="2">10pt</option>
+      <option value="3">12pt</option>
+      <option value="4">14pt</option>
+      <option value="5">18pt</option>
+      <option value="6">24pt</option>
+      <option value="7">36pt</option>
+    </select>
+
+    <!-- Font color and highlight -->
+    <input type="color" onchange="execCmdArg('foreColor', this.value)" title="Text Color">
+    <input type="color" onchange="execCmdArg('hiliteColor', this.value)" title="Highlight Color">
+
+    <!-- Alignment -->
+    <button onclick="execCmd('justifyLeft')">Left</button>
+    <button onclick="execCmd('justifyCenter')">Center</button>
+    <button onclick="execCmd('justifyRight')">Right</button>
+
+    <!-- Insert image -->
+    <input type="file" id="imgInput" accept="image/*">
+
+    <!-- Save/load/print/export -->
+    <button onclick="saveDoc()">💾 Save</button>
+    <button onclick="loadDoc()">📂 Load</button>
+    <button onclick="printDoc()">🖨️ Print</button>
+    <button onclick="exportPDF()">📄 Export PDF</button>
+  </div>
+
+  <div id="editor" contenteditable="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>
