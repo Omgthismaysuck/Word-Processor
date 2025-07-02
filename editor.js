@@ -3,6 +3,10 @@ function execCmd(command) {
   document.execCommand(command, false, null);
 }
 
+function execCmdArg(command, value) {
+  document.execCommand(command, false, value);
+}
+
 document.getElementById('imgInput').addEventListener('change', function (e) {
   const file = e.target.files[0];
   const reader = new FileReader();
@@ -28,13 +32,16 @@ function printDoc() {
 function saveDoc() {
   const data = document.getElementById('editor').innerHTML;
   localStorage.setItem('wordclone_doc', data);
-  alert("Saved!");
+  alert("Document Saved!");
 }
 
 function loadDoc() {
   const data = localStorage.getItem('wordclone_doc');
-  if (data) document.getElementById('editor').innerHTML = data;
-  else alert("No saved doc found.");
+  if (data) {
+    document.getElementById('editor').innerHTML = data;
+  } else {
+    alert("No saved document found.");
+  }
 }
 
 function exportPDF() {
