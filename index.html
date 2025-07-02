@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WordClone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toolbar">
+    <button onclick="execCmd('bold')">Bold</button>
+    <button onclick="execCmd('italic')">Italic</button>
+    <button onclick="execCmd('underline')">Underline</button>
+    <input type="file" id="imgInput" accept="image/*">
+    <button onclick="printDoc()">🖨️ Print</button>
+    <button onclick="saveDoc()">💾 Save</button>
+    <button onclick="loadDoc()">📂 Load</button>
+    <button onclick="exportPDF()">📝 Export PDF</button>
+  </div>
+  <div id="editor" contenteditable="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>
